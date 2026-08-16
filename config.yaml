@@ -15,57 +15,63 @@ filters:
 # Job Search Criteria & Filtering Config
 # ==========================================
 
-# Target job titles aligned with your AI, ML, Data Science, and Python stack
-include_titles:
-  - "AI Engineer"
-  - "Machine Learning Engineer"
-  - "ML Engineer"
-  - "Generative AI Engineer"
-  - "LLM Engineer"
-  - "Applied AI Engineer"
-  - "Applied Scientist"
-  - "Data Scientist"
-  - "Python Developer"
-  - "Python Engineer"
-  - "MLOps Engineer"
-  - "AI Platform Engineer"
-  - "Deep Learning Engineer"
-  - "NLP Engineer"
-  - "Computer Vision Engineer"
-  - "Member of Technical Staff - AI"
+filters:
+  # Target job titles matched as regexes (case-insensitive). A job must
+  # match at least one of these — and none of the excludes — to survive.
+  include_titles:
+    - '\bsoftware engineer\b'
+    - '\bsde\b'
+    - '\bai engineer\b'
+    - '\bmachine learning engineer\b'
+    - '\bml engineer\b'
+    - '\bapplied ai\b'
+    - '\bapplied scientist\b'
+    - '\bdata scientist\b'
+    - 'genai'
+    - 'generative ai'
+    - '\bllm\b'
+    - '\bnlp\b'
+    - '\bcomputer vision\b'
+    - '\bmlops\b'
+    - '\bdeep learning\b'
+    - '\bai platform\b'
+    - 'python developer'
+    - 'python engineer'
+    - 'member of technical staff'
+    - 'forward deployed'
 
-# Titles to strictly exclude
-exclude_titles:
-  - "Frontend"
-  - "UI/UX"
-  - "Mobile Developer"
-  - "iOS"
-  - "Android"
-  - "React Developer"
-  - "Full Stack"
-  - "Java Developer"
-  - "C# Developer"
-  - "PHP Developer"
-  - ".NET Developer"
-  - "Director"
-  - "Vice President"
-  - "VP"
-  - "Engineering Manager"
-  - "Manager"
-  - "Product Manager"
-  - "Sales Engineer"
+  # Titles to strictly exclude
+  exclude_titles:
+    - "Frontend"
+    - "UI/UX"
+    - "Mobile Developer"
+    - "iOS"
+    - "Android"
+    - "React Developer"
+    - "Full Stack"
+    - "Java Developer"
+    - "C# Developer"
+    - "PHP Developer"
+    - ".NET Developer"
+    - "Director"
+    - "Vice President"
+    - "VP"
+    - "Engineering Manager"
+    - "Manager"
+    - "Product Manager"
+    - "Sales Engineer"
 
-# Target locations
-locations:
-  - "Bengaluru"
-  - "Bangalore"
-  - "Remote"
+  # Target locations
+  locations:
+    - "Bengaluru"
+    - "Bangalore"
+    - "Remote"
 
-# Include remote positions regardless of base office location
-allow_remote: true
+  # Include remote positions regardless of base office location
+  allow_remote: true
 
-# Maximum age of the posting in days
-max_age_days: 30
+  # Maximum age of the posting in days
+  max_age_days: 30
 
 # Matching sensitivity (Score 1 - 10)
 # 7 matches your core skills (FastAPI, LangChain, LlamaIndex, Vector DBs, PyTorch) without filtering out edge AI/ML roles
