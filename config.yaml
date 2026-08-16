@@ -20,13 +20,15 @@ filters:
   # match at least one of these — and none of the excludes — to survive.
   include_titles:
     - '\bsoftware engineer\b'
+    - '\bsoftware development engineer\b'
     - '\bsde\b'
+    - '\bbackend engineer\b'
+    - '\bsite reliability engineer\b'
     - '\bai engineer\b'
     - '\bmachine learning engineer\b'
     - '\bml engineer\b'
     - '\bapplied ai\b'
     - '\bapplied scientist\b'
-    - '\bdata scientist\b'
     - 'genai'
     - 'generative ai'
     - '\bllm\b'
@@ -42,6 +44,7 @@ filters:
 
   # Titles to strictly exclude
   exclude_titles:
+    - '\b(staff|principal|senior)\b'
     - "Frontend"
     - "UI/UX"
     - "Mobile Developer"
@@ -60,12 +63,12 @@ filters:
     - "Manager"
     - "Product Manager"
     - "Sales Engineer"
+    - "Data Scientist"
 
   # Target locations
   locations:
     - "Bengaluru"
     - "Bangalore"
-    - "Remote"
 
   # Include remote positions regardless of base office location
   allow_remote: true

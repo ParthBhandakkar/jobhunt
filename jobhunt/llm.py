@@ -42,22 +42,48 @@ def parse_json(raw: str) -> Any:
     if raw is None:
         raise ValueError("empty model reply")
     cleaned = _FENCE_CLOSE.sub("", _FENCE_OPEN.sub("", raw)).strip()
+    # Gemini JSON mode occasionally wraps array entries in "***" (bolt-on
+    # markdown) and escapes apostrophes as \' — both break strict JSON.
+    cleaned = cleaned.replace("***", "")
+    cleaned = cleaned.replace("\\'", "'")
+    cleaned = cleaned.replace('\\"', '"')
     try:
         return json.loads(cleaned)
-    except json.JSONDecodeError:
-        pass
-    # Preamble before the payload, or trailing commentary after it.
-    candidates = []
-    for opener, closer in (("[", "]"), ("{", "}")):
-        i, k = cleaned.find(opener), cleaned.rfind(closer)
-        if i != -1 and k > i:
-            candidates.append((i, cleaned[i:k + 1]))
-    for _, blob in sorted(candidates):
+    except json.JSONDecodeError as e:
+        # One broken entry must not sink the batch: walk the string and decode
+        # each JSON object/array as an island, skipping stray tokens (`***`,
+        # commas, prose) that sit between them.
+        island = _json_islands(cleaned)
+        if island:
+            return island if len(island) > 1 else island[0]
+        raise ValueError(
+            f"could not parse JSON from model reply ({e.msg} at char {e.pos}): "
+            f"{cleaned[:300]!r}")
+
+
+def _json_islands(cleaned: str) -> list[Any]:
+    """Decode every JSON object/array in `cleaned` as an independent island.
+
+    Uses raw_decode so a broken token between two objects — a stray `***`,
+    an extra comma, model prose — never contaminates its neighbours.
+    """
+    decoder = json.JSONDecoder()
+    found: list[Any] = []
+    pos = 0
+    n = len(cleaned)
+    while pos < n:
+        while pos < n and cleaned[pos] not in "{[":  # skip garbage until next island
+            pos += 1
+        if pos >= n:
+            break
         try:
-            return json.loads(blob)
+            obj, end = decoder.raw_decode(cleaned, pos)
         except json.JSONDecodeError:
+            pos += 1  # malformed island; skip one char and keep scanning
             continue
-    raise ValueError(f"could not parse JSON from model reply: {cleaned[:300]!r}")
+        found.append(obj)
+        pos = end
+    return found
 
 
 def _as_list(payload: Any) -> list[dict]:
