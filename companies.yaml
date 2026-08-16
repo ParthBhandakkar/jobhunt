@@ -4,41 +4,331 @@
 #   slug:  the company's board identifier (NOT its domain)
 #   name:  whatever you want to see in the digest
 #
-# The slug is the last path segment of the company's public careers board:
-#   https://boards.greenhouse.io/<slug>        -> ats: greenhouse
-#   https://jobs.lever.co/<slug>               -> ats: lever
-#   https://jobs.ashbyhq.com/<slug>            -> ats: ashby
+# Every slug below was verified live against the ATS API on the day this
+# file was generated. Slugs go stale; a dead one prints HTTP 404 and the
+# run continues — delete it when you see it.
 #
-# THESE ARE EXAMPLES — verify each one before you trust the output. Companies
-# migrate between ATS vendors and slugs go dead. Check a slug in your browser:
-#   https://boards-api.greenhouse.io/v1/boards/<slug>/jobs?content=true
-#   https://api.lever.co/v0/postings/<slug>?mode=json
-#   https://api.ashbyhq.com/posting-api/job-board/<slug>?includeCompensation=true
-#
-# A dead slug is not fatal: fetch_board prints the HTTP status and returns [],
-# so one bad entry never takes down the run. Watch the per-board job counts on
-# stdout — a board reporting 0 jobs every day is a slug that needs fixing.
-#
-# Start with 10-15 companies you would actually join. A list of 200 is mostly
-# noise and makes the prefilter counts impossible to reason about.
-
+# Start with 10-15 companies you would actually join. A list of 200 is
+# mostly noise and makes the prefilter counts impossible to reason about.
 companies:
-  - {ats: greenhouse, slug: scaleai,      name: Scale AI}
-  - {ats: greenhouse, slug: stripe,       name: Stripe}
-  - {ats: greenhouse, slug: figma,        name: Figma}
-  - {ats: greenhouse, slug: databricks,   name: Databricks}
-  - {ats: greenhouse, slug: anthropic,    name: Anthropic}
-  - {ats: greenhouse, slug: discord,      name: Discord}
-
-  - {ats: lever,      slug: palantir,     name: Palantir}
-  - {ats: lever,      slug: spotify,      name: Spotify}
-
-  - {ats: ashby,      slug: openai,       name: OpenAI}
-  - {ats: ashby,      slug: langchain,    name: LangChain}
-  - {ats: ashby,      slug: perplexity,   name: Perplexity}
-  - {ats: ashby,      slug: linear,       name: Linear}
-  - {ats: ashby,      slug: modal,        name: Modal}
-  - {ats: ashby,      slug: elevenlabs,   name: ElevenLabs}
-  - {ats: ashby,      slug: harvey,       name: Harvey}
-  - {ats: ashby,      slug: notion,       name: Notion}
-  - {ats: ashby,      slug: deepgram,     name: Deepgram}
+  - {ats: greenhouse, slug: acryldata, name: Acryl Data}
+  - {ats: greenhouse, slug: adapter, name: Adapter}
+  - {ats: greenhouse, slug: adyen, name: Adyen}
+  - {ats: greenhouse, slug: affirm, name: Affirm}
+  - {ats: greenhouse, slug: airbnb, name: Airbnb}
+  - {ats: greenhouse, slug: airtable, name: Airtable}
+  - {ats: greenhouse, slug: alloy, name: Alloy}
+  - {ats: greenhouse, slug: alpaca, name: Alpaca}
+  - {ats: greenhouse, slug: altanaai, name: Altana}
+  - {ats: greenhouse, slug: amplitude, name: Amplitude}
+  - {ats: greenhouse, slug: anaplan, name: Anaplan}
+  - {ats: greenhouse, slug: anthropic, name: Anthropic}
+  - {ats: greenhouse, slug: apolloio, name: Apollo.io}
+  - {ats: greenhouse, slug: arceeai, name: Arcee AI}
+  - {ats: greenhouse, slug: asana, name: Asana}
+  - {ats: greenhouse, slug: assemblyai, name: AssemblyAI}
+  - {ats: greenhouse, slug: attentive, name: Attentive}
+  - {ats: greenhouse, slug: autogenai, name: AutoGen AI}
+  - {ats: greenhouse, slug: aviatrix, name: Aviatrix}
+  - {ats: greenhouse, slug: avochato, name: Avochato}
+  - {ats: greenhouse, slug: behavox, name: Behavox}
+  - {ats: greenhouse, slug: betterment, name: Betterment}
+  - {ats: greenhouse, slug: blackforestlabs, name: Black Forest Labs}
+  - {ats: greenhouse, slug: block, name: Block}
+  - {ats: greenhouse, slug: bluefishai, name: Bluefish AI}
+  - {ats: greenhouse, slug: boostedai, name: Boosted.ai}
+  - {ats: greenhouse, slug: boxinc, name: Box}
+  - {ats: greenhouse, slug: brave, name: Brave}
+  - {ats: greenhouse, slug: brex, name: Brex}
+  - {ats: greenhouse, slug: buildkite, name: Buildkite}
+  - {ats: greenhouse, slug: cakeai, name: Cake AI}
+  - {ats: greenhouse, slug: carta, name: Carta}
+  - {ats: greenhouse, slug: celonis, name: Celonis}
+  - {ats: greenhouse, slug: chime, name: Chime}
+  - {ats: greenhouse, slug: circleci, name: CircleCI}
+  - {ats: greenhouse, slug: cleo, name: Cleo}
+  - {ats: greenhouse, slug: clickhouse, name: ClickHouse}
+  - {ats: greenhouse, slug: cloudflare, name: Cloudflare}
+  - {ats: greenhouse, slug: cockroachlabs, name: Cockroach Labs}
+  - {ats: greenhouse, slug: codepath, name: CodePath}
+  - {ats: greenhouse, slug: coinbase, name: Coinbase}
+  - {ats: greenhouse, slug: collibra, name: Collibra}
+  - {ats: greenhouse, slug: comet, name: Comet ML}
+  - {ats: greenhouse, slug: contentstack, name: Contentstack}
+  - {ats: greenhouse, slug: coreweave, name: CoreWeave}
+  - {ats: greenhouse, slug: cortex, name: Cortex}
+  - {ats: greenhouse, slug: coursera, name: Coursera}
+  - {ats: greenhouse, slug: databricks, name: Databricks}
+  - {ats: greenhouse, slug: datacamp, name: DataCamp}
+  - {ats: greenhouse, slug: datadog, name: Datadog}
+  - {ats: greenhouse, slug: dataiku, name: Dataiku}
+  - {ats: greenhouse, slug: deepmind, name: DeepMind}
+  - {ats: greenhouse, slug: descript, name: Descript}
+  - {ats: greenhouse, slug: discord, name: Discord}
+  - {ats: greenhouse, slug: dominodatalab, name: Domino Data Lab}
+  - {ats: greenhouse, slug: doordashusa, name: DoorDash}
+  - {ats: greenhouse, slug: dremio, name: Dremio}
+  - {ats: greenhouse, slug: dropbox, name: Dropbox}
+  - {ats: greenhouse, slug: druva, name: Druva}
+  - {ats: greenhouse, slug: duolingo, name: Duolingo}
+  - {ats: greenhouse, slug: elastic, name: Elastic}
+  - {ats: greenhouse, slug: fastly, name: Fastly}
+  - {ats: greenhouse, slug: feedzai, name: Feedzai}
+  - {ats: greenhouse, slug: figma, name: Figma}
+  - {ats: greenhouse, slug: figureai, name: Figure AI}
+  - {ats: greenhouse, slug: fivetran, name: Fivetran}
+  - {ats: greenhouse, slug: galileo, name: Galileo}
+  - {ats: greenhouse, slug: gather, name: Gather}
+  - {ats: greenhouse, slug: gatherai, name: Gather AI}
+  - {ats: greenhouse, slug: gemini, name: Gemini}
+  - {ats: greenhouse, slug: generalassembly, name: General Assembly}
+  - {ats: greenhouse, slug: ghost, name: Ghost}
+  - {ats: greenhouse, slug: gitai, name: GITAI}
+  - {ats: greenhouse, slug: gitlab, name: GitLab}
+  - {ats: greenhouse, slug: gleanwork, name: Glean}
+  - {ats: greenhouse, slug: godaddy, name: GoDaddy}
+  - {ats: greenhouse, slug: gr8tech, name: GoTo}
+  - {ats: greenhouse, slug: gradientai, name: Gradient AI}
+  - {ats: greenhouse, slug: gradle, name: Gradle}
+  - {ats: greenhouse, slug: grafanalabs, name: Grafana Labs}
+  - {ats: greenhouse, slug: graphcore, name: Graphcore}
+  - {ats: greenhouse, slug: gusto, name: Gusto}
+  - {ats: greenhouse, slug: hackerrank, name: HackerRank}
+  - {ats: greenhouse, slug: hive, name: Hive}
+  - {ats: greenhouse, slug: honeycomb, name: Honeycomb}
+  - {ats: greenhouse, slug: honor, name: Honor}
+  - {ats: greenhouse, slug: hootsuite, name: Hootsuite}
+  - {ats: greenhouse, slug: humeai, name: Hume AI}
+  - {ats: greenhouse, slug: inflectionai, name: Inflection AI}
+  - {ats: greenhouse, slug: instacart, name: Instacart}
+  - {ats: greenhouse, slug: intercom, name: Intercom}
+  - {ats: greenhouse, slug: isaac, name: Isaac Instruments}
+  - {ats: greenhouse, slug: karbon, name: Karbon}
+  - {ats: greenhouse, slug: khanacademy, name: Khan Academy}
+  - {ats: greenhouse, slug: klaviyo, name: Klaviyo}
+  - {ats: greenhouse, slug: konux, name: Konux}
+  - {ats: greenhouse, slug: later, name: Later}
+  - {ats: greenhouse, slug: lattice, name: Lattice}
+  - {ats: greenhouse, slug: launchdarkly, name: LaunchDarkly}
+  - {ats: greenhouse, slug: lighthouse, name: Lighthouse}
+  - {ats: greenhouse, slug: lightningai, name: Lightning AI}
+  - {ats: greenhouse, slug: linkedin, name: LinkedIn}
+  - {ats: greenhouse, slug: lovable, name: Lovable}
+  - {ats: greenhouse, slug: lyft, name: Lyft}
+  - {ats: greenhouse, slug: make, name: Make}
+  - {ats: greenhouse, slug: manifoldai, name: Manifold AI}
+  - {ats: greenhouse, slug: masterclass, name: MasterClass}
+  - {ats: greenhouse, slug: mattermost, name: Mattermost}
+  - {ats: greenhouse, slug: medium, name: Medium}
+  - {ats: greenhouse, slug: mercury, name: Mercury}
+  - {ats: greenhouse, slug: mesh, name: Mesh}
+  - {ats: greenhouse, slug: mixpanel, name: Mixpanel}
+  - {ats: greenhouse, slug: mongodb, name: MongoDB}
+  - {ats: greenhouse, slug: monzo, name: Monzo}
+  - {ats: greenhouse, slug: motional, name: Motional}
+  - {ats: greenhouse, slug: mozilla, name: Mozilla}
+  - {ats: greenhouse, slug: navierai, name: Navier AI}
+  - {ats: greenhouse, slug: netlify, name: Netlify}
+  - {ats: greenhouse, slug: newrelic, name: New Relic}
+  - {ats: greenhouse, slug: nothing, name: Nothing}
+  - {ats: greenhouse, slug: nuro, name: Nuro}
+  - {ats: greenhouse, slug: observeai, name: Observe.AI}
+  - {ats: greenhouse, slug: okta, name: Okta}
+  - {ats: greenhouse, slug: olivai, name: Oliv AI}
+  - {ats: greenhouse, slug: otterai, name: Otter.ai}
+  - {ats: greenhouse, slug: pagerduty, name: PagerDuty}
+  - {ats: greenhouse, slug: pantheon, name: Pantheon}
+  - {ats: greenhouse, slug: pendo, name: Pendo}
+  - {ats: greenhouse, slug: phdata, name: PH Data}
+  - {ats: greenhouse, slug: phonepe, name: PhonePe}
+  - {ats: greenhouse, slug: pingidentity, name: Ping Identity}
+  - {ats: greenhouse, slug: pinterest, name: Pinterest}
+  - {ats: greenhouse, slug: pitchbookdata, name: PitchBook Data}
+  - {ats: greenhouse, slug: planetscale, name: PlanetScale}
+  - {ats: greenhouse, slug: platformsh, name: Platform.sh}
+  - {ats: greenhouse, slug: polyai, name: Poly AI}
+  - {ats: greenhouse, slug: postman, name: Postman}
+  - {ats: greenhouse, slug: primerai, name: Primer AI}
+  - {ats: greenhouse, slug: prophet, name: Prophet}
+  - {ats: greenhouse, slug: protonai, name: Proton AI}
+  - {ats: greenhouse, slug: purestorage, name: Pure Storage}
+  - {ats: greenhouse, slug: qualtrics, name: Qualtrics}
+  - {ats: greenhouse, slug: quillbot, name: QuillBot}
+  - {ats: greenhouse, slug: radar, name: Radar}
+  - {ats: greenhouse, slug: reddit, name: Reddit}
+  - {ats: greenhouse, slug: reflex, name: Reflex}
+  - {ats: greenhouse, slug: relationalai, name: RelationalAI}
+  - {ats: greenhouse, slug: relex, name: RELEX Solutions}
+  - {ats: greenhouse, slug: robinhood, name: Robinhood}
+  - {ats: greenhouse, slug: roblox, name: Roblox}
+  - {ats: greenhouse, slug: salesloft, name: Salesloft}
+  - {ats: greenhouse, slug: scaleai, name: Scale AI}
+  - {ats: greenhouse, slug: scoutai, name: Scout AI}
+  - {ats: greenhouse, slug: sezzle, name: Sezzle}
+  - {ats: greenhouse, slug: sigmacomputing, name: Sigma Computing}
+  - {ats: greenhouse, slug: singlestore, name: SingleStore}
+  - {ats: greenhouse, slug: sisense, name: Sisense}
+  - {ats: greenhouse, slug: snorkelai, name: Snorkel AI}
+  - {ats: greenhouse, slug: sofi, name: SoFi}
+  - {ats: greenhouse, slug: spycloud, name: SpyCloud}
+  - {ats: greenhouse, slug: squarespace, name: Squarespace}
+  - {ats: greenhouse, slug: stabilityai, name: Stability AI}
+  - {ats: greenhouse, slug: stackblitz, name: StackBlitz}
+  - {ats: greenhouse, slug: starburst, name: Starburst}
+  - {ats: greenhouse, slug: stitchfix, name: Stitch Fix}
+  - {ats: greenhouse, slug: stripe, name: Stripe}
+  - {ats: greenhouse, slug: sumologic, name: Sumo Logic}
+  - {ats: greenhouse, slug: superset, name: Preset (Superset)}
+  - {ats: greenhouse, slug: tempo, name: Tempo}
+  - {ats: greenhouse, slug: tenstorrent, name: Tenstorrent}
+  - {ats: greenhouse, slug: tide, name: Tide}
+  - {ats: greenhouse, slug: togetherai, name: Together AI}
+  - {ats: greenhouse, slug: turing, name: Turing}
+  - {ats: greenhouse, slug: twilio, name: Twilio}
+  - {ats: greenhouse, slug: twitch, name: Twitch}
+  - {ats: greenhouse, slug: udacity, name: Udacity}
+  - {ats: greenhouse, slug: udemy, name: Udemy}
+  - {ats: greenhouse, slug: veracode, name: Veracode}
+  - {ats: greenhouse, slug: vercel, name: Vercel}
+  - {ats: greenhouse, slug: vonage, name: Vonage}
+  - {ats: greenhouse, slug: vtex, name: VTEX}
+  - {ats: greenhouse, slug: waymo, name: Waymo}
+  - {ats: greenhouse, slug: weave, name: Weave}
+  - {ats: greenhouse, slug: webflow, name: Webflow}
+  - {ats: greenhouse, slug: workato, name: Workato}
+  - {ats: greenhouse, slug: xai, name: xAI}
+  - {ats: greenhouse, slug: yellowbrickdata, name: Yellowbrick}
+  - {ats: greenhouse, slug: yugabyte, name: Yugabyte}
+  - {ats: greenhouse, slug: yurtsai, name: Yurts AI}
+  - {ats: greenhouse, slug: zestai, name: Zest AI}
+  - {ats: greenhouse, slug: ziprecruiter, name: ZipRecruiter}
+  - {ats: lever, slug: palantir, name: Palantir}
+  - {ats: lever, slug: spotify, name: Spotify}
+  - {ats: lever, slug: waabi, name: Waabi}
+  - {ats: lever, slug: zoox, name: Zoox}
+  - {ats: lever, slug: shieldai, name: Shield AI}
+  - {ats: lever, slug: robust-ai, name: Robust.AI}
+  - {ats: lever, slug: field-ai, name: Field AI}
+  - {ats: lever, slug: spear-ai, name: Spear AI}
+  - {ats: lever, slug: levelai, name: Level AI}
+  - {ats: lever, slug: bosonai, name: Boson AI}
+  - {ats: lever, slug: ironflow, name: Ironflow AI}
+  - {ats: lever, slug: spiceai, name: Spice AI}
+  - {ats: lever, slug: tonic, name: Tonic.ai}
+  - {ats: lever, slug: metr, name: METR}
+  - {ats: lever, slug: epoch-ai, name: Epoch AI}
+  - {ats: lever, slug: superannotate, name: SuperAnnotate}
+  - {ats: lever, slug: tinybird, name: Tinybird}
+  - {ats: lever, slug: zilliz, name: Zilliz}
+  - {ats: lever, slug: stardog, name: Stardog}
+  - {ats: lever, slug: benchsci, name: BenchSci}
+  - {ats: lever, slug: deepgenomics, name: Deep Genomics}
+  - {ats: lever, slug: rapidai, name: RapidAI}
+  - {ats: lever, slug: postera, name: PostEra}
+  - {ats: lever, slug: pryon, name: Pryon}
+  - {ats: lever, slug: virtualitics, name: Virtualitics}
+  - {ats: lever, slug: kogniz, name: Kogniz}
+  - {ats: lever, slug: whiterabbit, name: Whiterabbit.ai}
+  - {ats: lever, slug: unitq, name: unitQ}
+  - {ats: lever, slug: intenseye, name: Intenseye}
+  - {ats: ashby, slug: openai, name: OpenAI}
+  - {ats: ashby, slug: mistral.ai, name: Mistral}
+  - {ats: ashby, slug: cohere, name: Cohere}
+  - {ats: ashby, slug: perplexity, name: Perplexity AI}
+  - {ats: ashby, slug: harvey, name: Harvey}
+  - {ats: ashby, slug: elevenlabs, name: ElevenLabs}
+  - {ats: ashby, slug: deepgram, name: Deepgram}
+  - {ats: ashby, slug: synthesia, name: Synthesia}
+  - {ats: ashby, slug: suno, name: Suno}
+  - {ats: ashby, slug: midjourney, name: Midjourney}
+  - {ats: ashby, slug: runway, name: Runway}
+  - {ats: ashby, slug: exa, name: Exa}
+  - {ats: ashby, slug: krea, name: Krea}
+  - {ats: ashby, slug: recraft, name: Recraft}
+  - {ats: ashby, slug: twelve, name: Twelve Labs}
+  - {ats: ashby, slug: photoroom, name: PhotoRoom}
+  - {ats: ashby, slug: decagon, name: Decagon}
+  - {ats: ashby, slug: abridge, name: Abridge}
+  - {ats: ashby, slug: cognition, name: Cognition}
+  - {ats: ashby, slug: cursor, name: Cursor (Anysphere)}
+  - {ats: ashby, slug: granola, name: Granola}
+  - {ats: ashby, slug: sierra, name: Sierra AI}
+  - {ats: ashby, slug: legora, name: Legora}
+  - {ats: ashby, slug: qdrant.tech, name: Qdrant}
+  - {ats: ashby, slug: weaviate, name: Weaviate}
+  - {ats: ashby, slug: trychroma, name: Chroma}
+  - {ats: ashby, slug: pinecone, name: Pinecone}
+  - {ats: ashby, slug: nomic, name: Nomic}
+  - {ats: ashby, slug: llamaindex, name: LlamaIndex}
+  - {ats: ashby, slug: unstructured, name: Unstructured}
+  - {ats: ashby, slug: langchain, name: LangChain}
+  - {ats: ashby, slug: langfuse, name: Langfuse}
+  - {ats: ashby, slug: firecrawl, name: Firecrawl}
+  - {ats: ashby, slug: inkeep, name: Inkeep}
+  - {ats: ashby, slug: braintrust, name: Braintrust}
+  - {ats: ashby, slug: elicit, name: Elicit}
+  - {ats: ashby, slug: openrouter, name: OpenRouter}
+  - {ats: ashby, slug: gptzero, name: GPTZero}
+  - {ats: ashby, slug: writer, name: Writer}
+  - {ats: ashby, slug: lovable, name: Lovable}
+  - {ats: ashby, slug: replit, name: Replit}
+  - {ats: ashby, slug: vapi, name: Vapi}
+  - {ats: ashby, slug: surge-ai, name: Surge AI}
+  - {ats: ashby, slug: encord, name: Encord}
+  - {ats: ashby, slug: baseten, name: Baseten}
+  - {ats: ashby, slug: anyscale, name: Anyscale}
+  - {ats: ashby, slug: hyperbolic, name: Hyperbolic}
+  - {ats: ashby, slug: cerebras, name: Cerebras}
+  - {ats: ashby, slug: lambda, name: Lambda}
+  - {ats: ashby, slug: modal, name: Modal}
+  - {ats: ashby, slug: fireworks, name: Fireworks AI}
+  - {ats: ashby, slug: vanta, name: Vanta}
+  - {ats: ashby, slug: 1password, name: 1Password}
+  - {ats: ashby, slug: coder, name: Coder}
+  - {ats: ashby, slug: montecarlodata, name: Monte Carlo}
+  - {ats: ashby, slug: clickup, name: ClickUp}
+  - {ats: ashby, slug: linear, name: Linear}
+  - {ats: ashby, slug: notion, name: Notion}
+  - {ats: ashby, slug: posthog, name: PostHog}
+  - {ats: ashby, slug: amplitude, name: Amplitude}
+  - {ats: ashby, slug: ramp, name: Ramp}
+  - {ats: ashby, slug: sarvam, name: Sarvam AI}
+  - {ats: ashby, slug: atlan, name: Atlan}
+  - {ats: ashby, slug: plane, name: Plane}
+  - {ats: ashby, slug: airwallex, name: Airwallex}
+  - {ats: ashby, slug: snowflake, name: Snowflake}
+  - {ats: ashby, slug: crusoe, name: Crusoe}
+  - {ats: ashby, slug: supabase, name: Supabase}
+  - {ats: ashby, slug: plaid, name: Plaid}
+  - {ats: ashby, slug: iterable, name: Iterable}
+  - {ats: ashby, slug: attio, name: Attio}
+  - {ats: ashby, slug: workos, name: WorkOS}
+  - {ats: ashby, slug: stytch, name: Stytch}
+  - {ats: ashby, slug: resend, name: Resend}
+  - {ats: ashby, slug: inngest, name: Inngest}
+  - {ats: ashby, slug: temporal, name: Temporal}
+  - {ats: ashby, slug: airbyte, name: Airbyte}
+  - {ats: ashby, slug: astronomer, name: Astronomer}
+  - {ats: ashby, slug: prefect, name: Prefect}
+  - {ats: ashby, slug: kestra, name: Kestra}
+  - {ats: ashby, slug: n8n, name: n8n}
+  - {ats: ashby, slug: windmill, name: Windmill}
+  - {ats: ashby, slug: neon, name: Neon}
+  - {ats: ashby, slug: motherduck, name: MotherDuck}
+  - {ats: ashby, slug: redis, name: Redis}
+  - {ats: ashby, slug: sanity, name: Sanity}
+  - {ats: ashby, slug: warp, name: Warp}
+  - {ats: ashby, slug: railway, name: Railway}
+  - {ats: ashby, slug: render, name: Render}
+  - {ats: ashby, slug: apify, name: Apify}
+  - {ats: ashby, slug: checkly, name: Checkly}
+  - {ats: ashby, slug: localstack, name: LocalStack}
+  - {ats: ashby, slug: zapier, name: Zapier}
+  - {ats: ashby, slug: oyster, name: Oyster}
+  - {ats: ashby, slug: paddle, name: Paddle}
+  - {ats: ashby, slug: mintlify, name: Mintlify}
+  - {ats: ashby, slug: vantage, name: Vantage}
+  - {ats: ashby, slug: hex, name: Hex}
+  - {ats: ashby, slug: merge, name: Merge}
+  - {ats: ashby, slug: axiom, name: Axiom}
+  - {ats: ashby, slug: knock, name: Knock}
